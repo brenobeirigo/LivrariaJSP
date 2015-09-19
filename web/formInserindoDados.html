@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Inserir dados</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="LivrariaServlet?cmd=addliv" method="post" >
+            <table>
+                <tr>
+                    <td>ISBN:</td><td><input type="text" name="isbn" /></td>
+                </tr>
+                <tr>
+                    <td>Título:</td><td><input type="text" name="titulo" /></td>
+                </tr>
+                <tr>
+                    <td>Edição:</td><td><input type="text" name= "edicao" /></td>
+                </tr>
+                <tr>
+                    <td>Publicação:</td><td><input type="text" name="publicacao"></td>
+                </tr>
+                <tr>
+                    <td>Descrição:</td>
+                    <td><textarea name="descricao" rows="5" cols="25"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="btCadastrar" value="Enviar" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
