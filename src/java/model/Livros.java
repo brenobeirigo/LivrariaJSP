@@ -19,10 +19,8 @@ public class Livros implements java.io.Serializable {
     private int edicao;
     private int publicacao;
 
-    
     private String descricao;
-   
-    
+
     public int getIsbn() {
         return isbn;
     }
@@ -66,7 +64,6 @@ public class Livros implements java.io.Serializable {
     public Livros() {
     }
 
-    
     public Livros(int isbn, String titulo, int edicao, int publicacao, String descricao) {
         this.isbn = isbn;
         this.titulo = titulo;
@@ -74,9 +71,13 @@ public class Livros implements java.io.Serializable {
         this.publicacao = publicacao;
         this.descricao = descricao;
     }
-    
-   
-    public static void main(String[] args) throws LivrariaDAOException{
+
+    @Override
+    public String toString() {
+        return "ISBN:" + this.isbn + "/" + this.titulo + "/" + this.edicao + "/" + this.publicacao + "/" + this.descricao+"/";
+    }
+
+    public static void main(String[] args) throws LivrariaDAOException {
         LivrariaDao d = new LivrariaDao();
         Livros a = d.procurarLivro(1);
         System.out.println(a.getDescricao());

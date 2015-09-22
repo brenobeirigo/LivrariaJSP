@@ -12,13 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Logica;
+import model.logica.Logica;
 
 /**
  *
  * @author Master
  */
-@WebServlet(name = "LivrariaServletFinal", urlPatterns = {"/LivrariaServletFinal"})
+@WebServlet(name = "LivrariaServletFinal", urlPatterns = {"/Livraria"})
 public class LivrariaServletFinal extends HttpServlet {
 
     /**
@@ -32,14 +32,16 @@ public class LivrariaServletFinal extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         String parametro = request.getParameter("logica");
-        String nomeDaClasse = "dao.logica." + parametro;
-try {
+        String nomeDaClasse = "model.logica." + parametro;
+        try {
             Class<?> classe = Class.forName(nomeDaClasse);
             Logica logica = (Logica) classe.newInstance();
-// Recebe o String após a execução da lógica
+            // Recebe o String após a execução da lógica
+            System.out.println("isbn:"+request.getParameter("isbn"));
             String pagina = logica.executa(request, response);
-// Faz o forward para a página JSP
+            // Faz o forward para a página JSP
             request.getRequestDispatcher(pagina).forward(request, response);
         } catch (Exception e) {
             throw new ServletException("A lógica de negócios causou uma exceção", e);

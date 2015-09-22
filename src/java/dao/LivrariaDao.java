@@ -46,6 +46,7 @@ public class LivrariaDao implements InterfaceLivrosDAO {
             ps.setInt(3, livro.getEdicao());
             ps.setInt(4, livro.getPublicacao());
             ps.setString(5, livro.getDescricao());
+            System.out.println("-"+livro.getDescricao()+"-");
             ps.executeUpdate();
         } catch (SQLException sqle) {
             throw new LivrariaDAOException("Erro ao inserir dados " + sqle);

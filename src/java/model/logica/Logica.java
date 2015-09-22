@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package model.logica;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +13,6 @@ import javax.servlet.http.HttpServletResponse;
  * @author Master
  */
 public interface Logica {
-String executa(HttpServletRequest req, HttpServletResponse res) throws Exception;
+String executa(HttpServletRequest request, HttpServletResponse response) throws Exception;
 } 
 

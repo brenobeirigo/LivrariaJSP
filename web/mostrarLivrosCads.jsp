@@ -15,7 +15,7 @@
         <title>Exibe livros</title>
     </head>
     <body>
-        <h1>LIVRARIA</h1>
+        <h1>Livros cadastrados</h1>
         <table border="l" cellpadding="2" cellspacing="O">
             <tr>
                 <th>ISBN - Atualizar</th>
@@ -30,7 +30,7 @@
                 %>
                 <tr>
                     <td>
-                        <a href= "LivrariaServlet?cmd=atu&isbn=<%=l.getIsbn()%>">
+                        <a href= "Livraria?logica=AtualizarLivForm&isbn=<%=l.getIsbn()%>">
                             <%=l.getIsbn()%>
                         </a>
                     </td>
@@ -39,7 +39,7 @@
                         <%= l.getPublicacao()%>
                     </td>
                     <td>
-                        <a href=" LivrariaServlet?cmd=exc&isbn=<%=l.getIsbn()%>">
+                        <a href= "Livraria?logica=ExcluirLiv&isbn=<%=l.getIsbn()%>">
                             Excluir
                         </a>
                     </td>
@@ -48,5 +48,6 @@
                     }//end for
                 %>
         </table>
+        <a href="adicionarLiv.html">>>Adicionar mais livros</a>
     </body>
 </html>
