@@ -37,24 +37,24 @@ public class LivrariaServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String cmd = request.getParameter("cmd");
-        if (cmd == null) {
-            cmd = "principal";
+        String logica = request.getParameter("logica");
+        if (logica == null) {
+            logica = "principal";
         }
-        System.out.println("comando:" + cmd);
+        System.out.println("comando:" + logica);
         InterfaceLivrosDAO dao;
 
-        if (cmd != null || !cmd.equalsIgnoreCase("principal")) {
+        if (logica != null || !logica.equalsIgnoreCase("principal")) {
 
             try {
                 dao = new LivrariaDao();
                 RequestDispatcher rd = null;
-                if (cmd.equalsIgnoreCase("listar")) {
+                if (logica.equalsIgnoreCase("MostrarLivros")) {
                     List livrosList = dao.todosLivros();
                     response.setContentType("text/html;charset=UTF-8");
                     request.setAttribute("livrosList", livrosList);
                     rd = request.getRequestDispatcher("mostrarLivros.jsp");
-                } else if (cmd.equalsIgnoreCase("addliv")) {
+                } else if (logica.equalsIgnoreCase("AdicionarLivros")) {
                     Livros livro = new Livros();
                     livro.setIsbn(Integer.parseInt(request.getParameter("isbn")));
                     livro.setTitulo(request.getParameter("titulo"));
@@ -65,24 +65,7 @@ public class LivrariaServlet extends HttpServlet {
                     livro.setPublicacao(Integer.parseInt(request.getParameter("publicacao")));
                     livro.setDescricao(request.getParameter("descricao"));
                     dao.salvar(livro);
-                    rd = request.getRequestDispatcher("LivrariaServlet?cmd=listar");
-                } else if (cmd.equalsIgnoreCase("exc")) {
-                    Livros livro = new Livros();
-                    livro.setIsbn(Integer.parseInt(request.getParameter("isbn")));
-                    dao.excluir(livro);
-                    rd = request.getRequestDispatcher("LivrariaServlet?cmd=listar");
-                } else if (cmd.equalsIgnoreCase("atu")) {
-                    Livros livro = dao.procurarLivro(Integer.parseInt(request.getParameter("isbn")));
-                    HttpSession session = request.getSession(true);
-                    session.setAttribute("livro", livro);
-                    rd = request.getRequestDispatcher("atualizarLivros.jsp");
-                } else if (cmd.equalsIgnoreCase("atualizar")) {
-                    Livros livro = new Livros();
-                    livro.setIsbn(Integer.parseInt(request.getParameter("isbn")));
-                    dao.atualizar(livro);
-                    rd = request.getRequestDispatcher("LivrariaServlet?cmd=listar");
-                } else if (cmd.equalsIgnoreCase("principal")) {
-                    rd = request.getRequestDispatcher("/index.jsp");
+                    rd = request.getRequestDispatcher("LivrariaServlet?logica=MostrarLivros");
                 }
                 rd.forward(request, response);
             } catch (Exception e) {

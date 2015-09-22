@@ -18,8 +18,6 @@ public class Livros implements java.io.Serializable {
     private String titulo;
     private int edicao;
     private int publicacao;
-
-    
     private String descricao;
    
     

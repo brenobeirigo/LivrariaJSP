@@ -15,38 +15,40 @@
         <title>Exibe livros</title>
     </head>
     <body>
-        <h1>LIVRARIA</h1>
-        <table border="l" cellpadding="2" cellspacing="O">
+        <h1>MOSTRAR LIVROS</h1>
+        <table border="l" cellpadding="0" cellspacing="0">
             <tr>
-                <th>ISBN - Atualizar</th>
+                <th>ISBN</th>
                 <th>Título</th>
                 <th>Publicado em</th>
-                <th>Excluir Livro</th>
+                <th>Edição</th>
+                <th>Descrição</th>
+
             </tr>
-                <%
-                    List livrosList = (List) request.getAttribute("livrosList");
-                    for (Iterator i = livrosList.iterator(); i.hasNext();) {
-                        Livros l = (Livros) i.next();
-                %>
-                <tr>
-                    <td>
-                        <a href= "LivrariaServlet?cmd=atu&isbn=<%=l.getIsbn()%>">
-                            <%=l.getIsbn()%>
-                        </a>
-                    </td>
-                    <td><%=l.getTitulo()%></td>
-                    <td>
-                        <%= l.getPublicacao()%>
-                    </td>
-                    <td>
-                        <a href=" LivrariaServlet?cmd=exc&isbn=<%=l.getIsbn()%>">
-                            Excluir
-                        </a>
-                    </td>
-                </tr>
-                <%
-                    }//end for
-                %>
+            <%
+                List livrosList = (List) request.getAttribute("livrosList");
+                for (Iterator i = livrosList.iterator(); i.hasNext();) {
+                    Livros l = (Livros) i.next();
+            %>
+            <tr>
+                <td> 
+                    <%=l.getIsbn()%>
+                </td>
+                <td><%=l.getTitulo()%></td>
+                <td>
+                    <%= l.getPublicacao()%>
+                </td>
+                <td>
+                    <%= l.getEdicao()%>
+                </td>
+                <td>
+                    <%= l.getDescricao()%>
+                </td>
+            </tr>
+            <%
+                }//end for
+            %>
         </table>
+        <a href="cadastrarLivros.html">>>Cadastrar livros</a>
     </body>
 </html>
