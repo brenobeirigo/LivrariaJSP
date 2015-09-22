@@ -42,9 +42,7 @@
                 <tr>
                     <td>Descrição:</td>
                     <td>
-                        <textarea name="descricao" rows="5" cols="25">
-                            ${livro.descricao}
-                        </textarea>
+                        <textarea name="descricao" rows="5" cols="25">${livro.descricao}</textarea>
                     </td>
                 </tr>
                 <tr>

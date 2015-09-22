@@ -53,7 +53,7 @@ public class LivrariaServlet extends HttpServlet {
                     List livrosList = dao.todosLivros();
                     response.setContentType("text/html;charset=UTF-8");
                     request.setAttribute("livrosList", livrosList);
-                    rd = request.getRequestDispatcher("mostrarLivrosCads.jsp");
+                    rd = request.getRequestDispatcher("mostrarLivros.jsp");
                 } else if (cmd.equalsIgnoreCase("addliv")) {
                     Livros livro = new Livros();
                     livro.setIsbn(Integer.parseInt(request.getParameter("isbn")));
@@ -75,7 +75,7 @@ public class LivrariaServlet extends HttpServlet {
                     Livros livro = dao.procurarLivro(Integer.parseInt(request.getParameter("isbn")));
                     HttpSession session = request.getSession(true);
                     session.setAttribute("livro", livro);
-                    rd = request.getRequestDispatcher("formAtuLivro.jsp");
+                    rd = request.getRequestDispatcher("atualizarLivros.jsp");
                 } else if (cmd.equalsIgnoreCase("atualizar")) {
                     Livros livro = new Livros();
                     livro.setIsbn(Integer.parseInt(request.getParameter("isbn")));
