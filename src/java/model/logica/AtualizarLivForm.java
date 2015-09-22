@@ -25,7 +25,7 @@ public class AtualizarLivForm implements Logica {
         Livros livro = dao.procurarLivro(Integer.parseInt(request.getParameter("isbn")));
         HttpSession session = request.getSession(true);
         session.setAttribute("livro", livro);
-        return "formAtuLivro.jsp";
+        return "atualizarLivros.jsp";
     }
 
 }

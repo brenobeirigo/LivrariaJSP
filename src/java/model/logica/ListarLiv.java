@@ -22,7 +22,7 @@ public class ListarLiv implements Logica {
         List livrosList = dao.todosLivros();
         response.setContentType("text/html;charset=UTF-8");
         request.setAttribute("livrosList", livrosList);
-        return "mostrarLivrosCads.jsp";
+        return "mostrarLivros.jsp";
     }
 
 }

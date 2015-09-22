@@ -30,16 +30,17 @@ public class LivrariaServletFinal extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //Codificação correta
         request.setCharacterEncoding("utf-8");
+        //Qual é a lógica?
         String parametro = request.getParameter("logica");
+        //Todas as lógicas estão no pacote model.logica
         String nomeDaClasse = "model.logica." + parametro;
         try {
-            Class<?> classe = Class.forName(nomeDaClasse);
+            Class<?> classe = Class.forName(nomeDaClasse);    
             Logica logica = (Logica) classe.newInstance();
             // Recebe o String após a execução da lógica
-            System.out.println("isbn:"+request.getParameter("isbn"));
             String pagina = logica.executa(request, response);
             // Faz o forward para a página JSP
             request.getRequestDispatcher(pagina).forward(request, response);

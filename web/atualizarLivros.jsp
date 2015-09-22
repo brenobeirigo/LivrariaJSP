@@ -13,6 +13,7 @@
     </head>
     <body>
         <jsp:useBean id="livro" scope="session" class="model.Livros" />
+        <h1>Atualizar livro</h1>
         <form action=" Livraria?logica=AtualizarLiv" method="post">
             <table>
                 <tr>
@@ -42,7 +43,7 @@
                 <tr>
                     <td>Descrição:</td>
                     <td>
-                        <textarea name="descricao" rows="5" cols="15">${livro.descricao}</textarea>
+                        <textarea name="descricao" rows="5" cols="25">${livro.descricao}</textarea>
                     </td>
                 </tr>
                 <tr>
