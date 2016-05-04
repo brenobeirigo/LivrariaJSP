@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package util;
 
 import dao.LivrariaDAOException;
@@ -13,17 +8,18 @@ import java.sql.Statement;
 
 /**
  *
- * @author Master
+ * @author BBEIRIGO
  */
-public class ConnectionLivrariaFactory {
+public class ConnectionFactory {
 
-    public static Connection getConnection() throws LivrariaDAOException {
-		
+    public static Connection getConnection(String server, String port, String db, String user, String password) throws LivrariaDAOException {
+            String url = "jdbc:mysql://"+server+":"+port+"/"+db;
         try {
+            //Ajuda a identificar a falta do driver JDBC
             Class.forName("com.mysql.jdbc.Driver");
-            return DriverManager.getConnection("jdbc:mysql://localhost/livraria", "root", "123456");
+            return DriverManager.getConnection(url, user, password);
         } catch (Exception e) {
-            throw new LivrariaDAOException(e.getMessage());
+            throw new LivrariaDAOException("Impossível conectar-se a url: "+url+"?user="+user+"&password="+password,e);
         }
     }
 
@@ -51,6 +47,7 @@ public class ConnectionLivrariaFactory {
                 conn.close();
             }
         } catch (Exception e) {
+            throw new LivrariaDAOException("Impossível terminar conexão.", e);
         }
 
     }

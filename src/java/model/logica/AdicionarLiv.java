@@ -8,7 +8,7 @@ package model.logica;
 import dao.LivrariaDao;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Livros;
+import model.Livro;
 
 /**
  *
@@ -19,7 +19,7 @@ public class AdicionarLiv implements Logica {
     @Override
     public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
         LivrariaDao dao = new LivrariaDao();
-        Livros livro = new Livros();
+        Livro livro = new Livro();
         livro.setIsbn(Integer.parseInt(request.getParameter("isbn")));
         livro.setTitulo(request.getParameter("titulo"));
         String edicao = request.getParameter("edicao");

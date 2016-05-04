@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="java.util.Iterator"%>
-<%@page import="model.Livros"%>
+<%@page import="model.Livro"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -26,7 +26,7 @@
             <%
                 List livrosList = (List) request.getAttribute("livrosList");
                 for (Iterator i = livrosList.iterator(); i.hasNext();) {
-                    Livros l = (Livros) i.next();
+                    Livro l = (Livro) i.next();
             %>
             <tr>
                 <td>

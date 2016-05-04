@@ -12,7 +12,7 @@
         <title>Atualiza Livro</title>
     </head>
     <body>
-        <jsp:useBean id="livro" scope="session" class="model.Livros" />
+        <jsp:useBean id="livro" scope="session" class="model.Livro" />
         <h1>Atualizar livro</h1>
         <form action=" Livraria?logica=AtualizarLiv" method="post">
             <table>
