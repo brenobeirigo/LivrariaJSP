@@ -10,48 +10,37 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Atualiza Livro</title>
+        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+        <script src="semantic/dist/semantic.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     </head>
     <body>
         <jsp:useBean id="livro" scope="session" class="model.Livro" />
-        <h1>Atualizar livro</h1>
-        <form action=" Livraria?logica=AtualizarLiv" method="post">
-            <table>
-                <tr>
-                    <td>ISBN:</td>
-                    <td>
-                        <input type="text" name="isbn" value="${livro.isbn}" readonly="readonly" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Título:</td>
-                    <td>
-                        <input type="text" name="titulo" value="${livro.titulo}" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Edição:</td>
-                    <td>
-                        <input type="text" name="edicao" value="${livro.edicao}" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Publicação:</td>
-                    <td>
-                        <input type="text" name="publicacao" value="${livro.publicacao}" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Descrição:</td>
-                    <td>
-                        <textarea name="descricao" rows="5" cols="25">${livro.descricao}</textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" name="btAtualizar" value= "Atualizar"/>
-                    </td>
-                </tr>
-            </table>
-        </form>
+        <div style="width:60%; margin: auto;">
+            <h1>
+                Atualizar Livro
+            </h1>
+            <form action=" Livraria?logica=AtualizarLiv" method="post" class="ui form" >
+
+                <div class="field">
+                    <label>ISBN:</label><input type="text" value="${livro.isbn}" readonly="readonly" name="isbn" />
+                </div>
+                <div class="field">
+                    <label>Título:</label><input type="text" value="${livro.titulo}" name="titulo" />
+                </div>
+                <div class="field">
+                    <label>Edição:</label><input type="text" value="${livro.edicao}" name= "edicao" />
+                </div>
+                <div class="field">
+                    <label>Publicação:</label><input type="text" value="${livro.publicacao}" name="publicacao">
+                </div>
+                <div class="field">
+                    <label>Descrição:</label>
+                    <label><textarea name="descricao" rows="5"  cols="25">${livro.descricao}</textarea>
+                </div>
+                <button class="ui button" type="submit">Atualizar</button>
+                <a href="Livraria?logica=ListarLiv">Mostrar livros cadastrados</a>
+            </form>
+        </div>
     </body>
 </html>

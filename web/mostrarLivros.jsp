@@ -53,7 +53,7 @@
                     }//end for
 %>
         </table>
-        <a href="adicionarLivros.html">>>Adicionar mais livros</a>
+        <a href="Livraria?logica=AdicionarLivForm">>>Adicionar mais livros</a>
         </div>
     </body>
 </html>
