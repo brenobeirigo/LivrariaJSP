@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Livros;
+import model.Livro;
 
 /**
  *
@@ -49,7 +49,7 @@ public class LivrariaServlet extends HttpServlet {
                 request.setAttribute("livrosList", livrosList);
                 rd = request.getRequestDispatcher("mostrarLivros.jsp");
             } else if (logica.equalsIgnoreCase("AdicionarLivros")) {
-                Livros livro = new Livros();
+                Livro livro = new Livro();
                 livro.setIsbn(Integer.parseInt(request.getParameter("isbn")));
                 livro.setTitulo(request.getParameter("titulo"));
                 String edicao = request.getParameter("edicao");
