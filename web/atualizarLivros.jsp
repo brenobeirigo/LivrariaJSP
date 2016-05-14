@@ -1,7 +1,7 @@
 <%-- 
     Document   : formAtuLivro
-    Created on : Sep 15, 2015, 11:40:46 PM
-    Author     : Master
+    Created on : 2016-05-14
+    Author     : Breno Beirigo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,8 +10,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Atualiza Livro</title>
-        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-        <script src="semantic/dist/semantic.min.js"></script>
+        <!-- Bootstrap -->
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     </head>
     <body>
@@ -22,23 +23,27 @@
             </h1>
             <form action=" Livraria?logica=AtualizarLiv" method="post" class="ui form" >
 
-                <div class="field">
-                    <label>ISBN:</label><input type="text" value="${livro.isbn}" readonly="readonly" name="isbn" />
+                <div class="form-group">
+                    <label for="isbn">ISBN:</label>
+                    <input type="text" class="form-control" value="${livro.isbn}" readonly="readonly" name="isbn" />
                 </div>
-                <div class="field">
-                    <label>Título:</label><input type="text" value="${livro.titulo}" name="titulo" />
+                <div class="form-group">
+                    <label for="titulo">Título:</label>
+                    <input type="text" class="form-control" value="${livro.titulo}" name="titulo" />
                 </div>
-                <div class="field">
-                    <label>Edição:</label><input type="text" value="${livro.edicao}" name= "edicao" />
+                <div class="form-group">
+                    <label for="edicao">Edição:</label>
+                    <input type="text" class="form-control" value="${livro.edicao}" name= "edicao" />
                 </div>
-                <div class="field">
-                    <label>Publicação:</label><input type="text" value="${livro.publicacao}" name="publicacao">
+                <div class="form-group">
+                    <label for="publicacao">Publicação:</label>
+                    <input type="text" class="form-control" value="${livro.publicacao}" name="publicacao">
                 </div>
-                <div class="field">
-                    <label>Descrição:</label>
-                    <label><textarea name="descricao" rows="5"  cols="25">${livro.descricao}</textarea>
+                <div class="form-group">
+                    <label for="descricao">Descrição:</label>
+                    <textarea name="descricao" rows="5" class="form-control" cols="25">${livro.descricao}</textarea>
                 </div>
-                <button class="ui button" type="submit">Atualizar</button>
+                <button class="btn btn-default" type="submit">Atualizar</button>
                 <a href="Livraria?logica=ListarLiv">Mostrar livros cadastrados</a>
             </form>
         </div>

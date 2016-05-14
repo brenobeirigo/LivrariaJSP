@@ -1,7 +1,7 @@
 <%-- 
     Document   : mostrarLivrosCads
-    Created on : Sep 15, 2015, 11:19:11 PM
-    Author     : Master
+    Created on : 2016-05-14
+    Author     : Breno Beirigo
 --%>
 
 <%@page import="java.util.Iterator"%>
@@ -13,15 +13,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Exibe livros</title>
-        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-        <script src="semantic/dist/semantic.min.js"></script>
+        <!-- Bootstrap -->
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     </head>
     <body>
         
-        <div style="width: 50%; margin: auto">
+        <div style="width: 60%; margin: auto">
             <h1>Livros cadastrados</h1>
-        <table class="ui striped table">
+        <table class="table table-striped">
             <tr>
                 <th>ISBN - Atualizar</th>
                 <th>Título</th>
